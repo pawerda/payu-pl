@@ -1,0 +1,31 @@
+{
+  "name": "payu-pl",
+  "version": "0.0.1",
+  "description": "Simple PayU Poland REST API wrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pawerda/payu-pl"
+  },
+  "keywords": [
+    "pl",
+    "payu.com",
+    "payu.pl",
+    "payu",
+    "node.js",
+    "node"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pawerda/payu-pl/issues"
+  },
+  "homepage": "https://github.com/pawerda/payu-pl",
+  "dependencies": {
+    "extend": "^2.0.1",
+    "request": "^2.57.0"
+  }
+}
