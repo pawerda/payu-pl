@@ -72,15 +72,16 @@ PayU.**parsePrice(float_price)** - returning parsed string price
 
 ####PayU instance (merchant from examples)
 
-merchant.**createOrder(order_data, cb)** - [a link](http://developers.payu.com/pl/restapi.html#creating_new_order_api)
+merchant.**createOrder(order_data, cb)** - [payu docs#creating_new_order_api](http://developers.payu.com/pl/restapi
+.html#creating_new_order_api)
 
-merchant.**getOrder(order_id, cb)** - [a link](http://developers.payu.com/pl/restapi.html#retrieving_order_data)
+merchant.**getOrder(order_id, cb)** - [payu docs#retrieving_order_data](http://developers.payu.com/pl/restapi.html#retrieving_order_data)
 
-merchant.**cancelOrder(order_id, cb)** - [a link](http://developers.payu.com/pl/restapi.html#cancellation)
+merchant.**cancelOrder(order_id, cb)** - [payu docs#cancellation](http://developers.payu.com/pl/restapi.html#cancellation)
 
-merchant.**refundOrder(order_data, cb)** - [a link](http://developers.payu.com/pl/restapi.html#refunds)
+merchant.**refundOrder(order_data, cb)** - [payu docs#refunds](http://developers.payu.com/pl/restapi.html#refunds)
 
-merchant.**changeOrderStatus(order_data, cb)** - [a link](http://developers.payu.com/pl/restapi.html#status_update)
+merchant.**changeOrderStatus(order_data, cb)** - [payu docs#status_update](http://developers.payu.com/pl/restapi.html#status_update)
 
 
 
