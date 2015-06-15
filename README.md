@@ -20,7 +20,7 @@ stored.
 
 ```javascript
 var PayU = require('payu-pl'),
-    merchant_config = {
+    merchantConfig = {
         merchantPosId: 145227, //test merchant id
         key: '13a980d4f851f3d9a1cfc792fb1f5e50', //test merchant key
         currencyCode: "PLN"
@@ -28,12 +28,12 @@ var PayU = require('payu-pl'),
     merchant;
 
 //THEN
-PayU.setDefaultMerchant(merchant_config); //creating default instance for app scope
+PayU.setDefaultMerchant(merchantConfig); //creating default instance for app scope
 merchant = PayU.API;
 
 //OR
 
-merchant = new PayU(merchant_config); //local instance
+merchant = new PayU(merchantConfig); //local instance
     
 ```
 
@@ -44,7 +44,7 @@ merchant = new PayU(merchant_config); //local instance
 ```javascript
 
 //You don't need to pass data that you put in merchant configuration.
-var test_order_data = {
+var testOrderData = {
     customerIp: "127.0.0.1",
     description: 'Test order',
     totalAmount: PayU.parsePrice(17.99), //or put string value in lowest currency unit
@@ -55,7 +55,7 @@ var test_order_data = {
     }]
 };
 
-merchant.createOrder(test_order_data, function(err, response){
+merchant.createOrder(testOrderData, function(err, response){
     console.log(err, response);
 });
 
@@ -68,20 +68,22 @@ merchant.createOrder(test_order_data, function(err, response){
 PayU.**setDefaultMerchant(config)** - setting new PayU(config) as PayU.API (avalible in next module require at app 
 scope)
 
-PayU.**parsePrice(float_price)** - returning parsed string price
+PayU.**parsePrice(floatPrice)** - returning parsed string price
 
 ####PayU instance (merchant from examples)
 
-merchant.**createOrder(order_data, cb)** - [payu docs#creating_new_order_api](http://developers.payu.com/pl/restapi
+merchant.**createOrder(orderData, cb)** - [payu docs#creating_new_order_api](http://developers.payu.com/pl/restapi
 .html#creating_new_order_api)
 
-merchant.**getOrder(order_id, cb)** - [payu docs#retrieving_order_data](http://developers.payu.com/pl/restapi.html#retrieving_order_data)
+merchant.**getOrder(orderId, cb)** - [payu docs#retrieving_order_data](http://developers.payu.com/pl/restapi
+.html#retrieving_order_data)
 
-merchant.**cancelOrder(order_id, cb)** - [payu docs#cancellation](http://developers.payu.com/pl/restapi.html#cancellation)
+merchant.**cancelOrder(orderId, cb)** - [payu docs#cancellation](http://developers.payu.com/pl/restapi
+.html#cancellation)
 
-merchant.**refundOrder(order_data, cb)** - [payu docs#refunds](http://developers.payu.com/pl/restapi.html#refunds)
+merchant.**refundOrder(orderData, cb)** - [payu docs#refunds](http://developers.payu.com/pl/restapi.html#refunds)
 
-merchant.**changeOrderStatus(order_data, cb)** - [payu docs#status_update](http://developers.payu.com/pl/restapi.html#status_update)
+merchant.**changeOrderStatus(orderData, cb)** - [payu docs#status_update](http://developers.payu.com/pl/restapi.html#status_update)
 
 
 
