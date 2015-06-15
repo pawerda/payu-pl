@@ -43,6 +43,7 @@ merchant = new PayU(merchant_config); //local instance
 
 ```javascript
 
+//You don't need to pass data that you put in merchant configuration.
 var test_order_data = {
     customerIp: "127.0.0.1",
     description: 'Test order',
@@ -54,8 +55,6 @@ var test_order_data = {
     }]
 };
 
-//You don't need to pass data that you put in merchant configuration.
-
 merchant.createOrder(test_order_data, function(err, response){
     console.log(err, response);
 });
@@ -66,42 +65,22 @@ merchant.createOrder(test_order_data, function(err, response){
 
 ####PayU (require('payu-pl'))
 
-PayU.**setDefaultMerchant(config)** - setting new PayU(config) as PayU.API avalible in next require(payu-pl)
-
-```javascript
-//some-file.js
-//////////////////////////
-
-var PayU = require('payu-pl'),
-    merchant_config = {},
-    merchant;
-    
-PayU.setDefaultMerchant({})
-merchant = PayU.API;
-
-///////////////////////////
-//some-other-file.js
-
-var PayU = require('payu-pl'),
-    merchant;
-    
-merchant = PayU.API; // instance from some-file.js 
-
-```
+PayU.**setDefaultMerchant(config)** - setting new PayU(config) as PayU.API (avalible in next module require at app 
+scope)
 
 PayU.**parsePrice(float_price)** - returning parsed string price
 
 ####PayU instance (merchant from examples)
 
-merchant.**createOrder(order_data, cb)** - http://developers.payu.com/pl/restapi.html#creating_new_order_api
+merchant.**createOrder(order_data, cb)** - [a link](http://developers.payu.com/pl/restapi.html#creating_new_order_api)
 
-merchant.**getOrder(order_id, cb)** - http://developers.payu.com/pl/restapi.html#retrieving_order_data
+merchant.**getOrder(order_id, cb)** - [a link](http://developers.payu.com/pl/restapi.html#retrieving_order_data)
 
-merchant.**cancelOrder(order_id, cb)** - http://developers.payu.com/pl/restapi.html#cancellation
+merchant.**cancelOrder(order_id, cb)** - [a link](http://developers.payu.com/pl/restapi.html#cancellation)
 
-merchant.**refundOrder(order_data, cb)** - http://developers.payu.com/pl/restapi.html#refunds
+merchant.**refundOrder(order_data, cb)** - [a link](http://developers.payu.com/pl/restapi.html#refunds)
 
-merchant.**changeOrderStatus(order_data, cb)** - http://developers.payu.com/pl/restapi.html#status_update
+merchant.**changeOrderStatus(order_data, cb)** - [a link](http://developers.payu.com/pl/restapi.html#status_update)
 
 
 
