@@ -3,22 +3,23 @@ payu-pl
 
 For more info check http://developers.payu.com/pl/restapi.html
 
-#Usage:
+# Usage:
 ```text
 $npm install payu-pl
 ```
-####then:
+#### then:
 
 ```javascript
 var PayU = require('payu-pl');
 ```
 
-####First step:
-######API setup
+#### API setup:
+
 Merchant configuration are costant data for your merchant e.g., merchantPosId, notifyUrl or whatever you want to be 
 stored.
 
 ```javascript
+
 var PayU = require('payu-pl'),
     merchantConfig = {
         merchantPosId: 145227, //test merchant id
@@ -28,8 +29,11 @@ var PayU = require('payu-pl'),
     merchant;
 
 //THEN
-PayU.setDefaultMerchant(merchantConfig); //creating default instance for app scope
-merchant = PayU.API;
+
+merchant = PayU.setDefaultMerchant(merchantConfig); //creating instance for app scope
+//merchant == PayU.API;
+//merchant instanceof PayU 
+
 
 //OR
 
@@ -37,9 +41,7 @@ merchant = new PayU(merchantConfig); //local instance
     
 ```
 
-####Second step:
-######Making requests
-
+#### Making requests:
 
 ```javascript
 
@@ -61,34 +63,27 @@ merchant.createOrder(testOrderData, function(err, response){
 
 ```
 
-###Implemented methods
+### Implemented methods
+
 Constructor takes 2 arguments. 
 First could be config object or merchantPosId. Second is hashKey (optional, could be passed in config object as **key**)
-####PayU (require('payu-pl'))
 
-PayU.**parsePrice(floatPrice)** - returning parsed string price
+#### PayU = require('payu-pl')
 
-merchant = **new PayU**(config) - new merchant instance 
+* PayU.**parsePrice(floatPrice)** - returning parsed string price
+* merchant = **new PayU**(configOrMerchantId, optionalHashKey) - new merchant instance 
+* merchant = PayU.**setDefaultMerchant(*args)** - setting **new PayU**(*args) as **PayU.API** (avalible in next 
+module require in app scope) and returns it.
 
-PayU.**setDefaultMerchant(config)** - setting **new PayU**(config) as **PayU.API** (avalible in next module require 
-at app scope) and returns it.
+#### PayU instance (merchant from examples)
 
-####PayU instance (merchant from examples)
-merchant.**login(merchantPosId, hashKey)** - setting merchant id and hash key for auth
-
-merchant.**createOrder(orderData, cb)** - [payu docs#creating_new_order_api](http://developers.payu.com/pl/restapi
-.html#creating_new_order_api)
-
-merchant.**getOrder(orderId, cb)** - [payu docs#retrieving_order_data](http://developers.payu.com/pl/restapi
-.html#retrieving_order_data)
-
-merchant.**cancelOrder(orderId, cb)** - [payu docs#cancellation](http://developers.payu.com/pl/restapi
-.html#cancellation)
-
-merchant.**refundOrder(orderData, cb)** - [payu docs#refunds](http://developers.payu.com/pl/restapi.html#refunds)
-
-merchant.**changeOrderStatus(orderData, cb)** - [payu docs#status_update](http://developers.payu.com/pl/restapi.html#status_update)
+* merchant.**login(merchantPosId, hashKey)** - setting merchant id and hash key for auth
+* merchant.**createOrder(orderData, cb)** - http://developers.payu.com/pl/restapi.html#creating_new_order_api
+* merchant.**getOrder(orderId, cb)** - http://developers.payu.com/pl/restapi.html#retrieving_order_data
+* merchant.**cancelOrder(orderId, cb)** - http://developers.payu.com/pl/restapi.html#cancellation
+* merchant.**refundOrder(orderData, cb)** - http://developers.payu.com/pl/restapi.html#refunds
+* merchant.**changeOrderStatus(orderData, cb)** - http://developers.payu.com/pl/restapi.html#status_update
 
 
 
-####Run test.js
+#### Run test.js
